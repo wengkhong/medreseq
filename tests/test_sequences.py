@@ -28,7 +28,8 @@ def test_fetch_around_snv_matches_raw_seq(synthetic_fasta: tuple[Path, str]) -> 
     with ReferenceGenome(fasta_path) as ref:
         seq, _ = ref.fetch_around(v, flank=100)
     # raw is 0-based; variant pos 5000 → 0-based index 4999
-    expected = raw[4900:5101].upper()
+    # window = [4999-100, 4999+1+100) = [4899, 5100)
+    expected = raw[4899:5100].upper()
     assert seq == expected
 
 
