@@ -1,0 +1,6 @@
+##fileformat=VCFv4.2
+##FILTER=<ID=PASS,Description="All filters passed">
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO
+chr1	5000	.	A	T	100	PASS	.
+chr1	7500	.	ATCG	A	100	PASS	.
+chr1	2000	.	C	G,T	50	PASS	.

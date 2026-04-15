@@ -1,0 +1,4 @@
+chrom	pos	ref	alt
+chr1	5000	A	T
+chr1	7500	ATCG	A
+chr1	2000	C	G

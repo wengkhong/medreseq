@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=70"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "medreseq"
+version = "2.0.0"
+description = "Design Sanger sequencing validation primers for genomic variants"
+requires-python = ">=3.10"
+license = {text = "GPL-2.0"}
+dependencies = [
+    "pysam>=0.22",
+    "primer3-py>=2.0",
+    "click>=8.0",
+]
+
+[project.scripts]
+medreseq = "medreseq.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["medreseq*"]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov>=5.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "integration: tests that require pysam and primer3-py (deselect with -m 'not integration')",
+]
+
+[tool.coverage.run]
+source = ["medreseq"]
+omit = ["tests/*"]
